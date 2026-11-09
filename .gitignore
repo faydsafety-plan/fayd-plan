@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+build/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+npm-debug.log*
+
+# rahasia: jangan pernah di-commit
+.env
+.env.local
+.env.*.local
