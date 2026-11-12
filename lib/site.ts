@@ -3,7 +3,7 @@ export const site = {
   brand: "FAYD Safety",
   slogan: "Field Apps for Your Daily Safety",
   product: "FAYD P2H Digital",
-  whatsapp: "6281767192228", // format internasional, tanpa + dan spasi
+  whatsapp: "628176719228", // format internasional, tanpa + dan spasi
   whatsappLabel: "0817-6719-228",
   email: "fayd.safety@gmail.com",
   instagram: "fayd.safety", // kosongkan kalau tidak ada

@@ -489,7 +489,19 @@ export default function Home() {
                 sub="Inspeksi, izin kerja, JSA, laporan insiden, atau form apa pun yang masih kertas. Kami bantu rancang dan buatkan aplikasinya."
               />
               <a
-                href={waLink("Halo FAYD, saya mau konsultasi pembuatan aplikasi HSE untuk perusahaan saya.")}
+                href={waLink(
+                  [
+                    "Halo FAYD Safety, saya mau konsultasi pembuatan aplikasi HSE.",
+                    "",
+                    "Nama: ",
+                    "Perusahaan / site: ",
+                    "Aplikasi yang dibutuhkan (contoh: inspeksi, izin kerja, JSA, laporan insiden): ",
+                    "Yang dipakai sekarang (kertas / Excel / lainnya): ",
+                    "Perkiraan jumlah pengguna: ",
+                    "",
+                    "Terima kasih.",
+                  ].join("\n"),
+                )}
                 target="_blank"
                 rel="noopener"
                 className="mt-8 inline-block rounded-2xl bg-amber px-7 py-4 text-lg font-black text-ink hover:bg-amber-dark"
