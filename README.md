@@ -1,13 +1,16 @@
-# FAYD — Landing Page
+# FAYD Safety — Landing Page P2H Digital
 
-Landing page untuk menjual aplikasi. Stack: Next.js (App Router) + Tailwind CSS 4, deploy ke Vercel.
+Landing page untuk menjual FAYD P2H Digital. Stack: Next.js (App Router) + Tailwind CSS 4, deploy ke Vercel.
 Tidak butuh database atau environment variable.
 
 ## Mengubah isi
-- `lib/site.ts` — nama toko, tagline, deskripsi, **nomor WhatsApp**, email
-- `lib/products.ts` — daftar aplikasi, fitur, dan harga
-- `app/page.tsx` — susunan halaman (hero, aplikasi, cara pesan, FAQ, ajakan)
-- `app/globals.css` — warna (bagian `@theme`)
+- `lib/site.ts` — WhatsApp, email, sosial media, dan **link checkout Lynk** (`lynk.demo`, `lynk.basic`, `lynk.pro`).
+  Selama link Lynk kosong, tombol beli diarahkan ke WhatsApp.
+- `lib/pricing.ts` — paket Demo, Basic, Pro: harga, harga coret, dan fasilitas
+- `lib/roadmap.ts` — aplikasi "Segera hadir"
+- `app/page.tsx` — teks dan urutan bagian halaman
+- `app/globals.css` — warna (bagian `@theme`, mengikuti aplikasi P2H)
+- `public/p2h/` — screenshot aplikasi dan video demo
 
 ## Menjalankan di komputer
 1. `npm install`

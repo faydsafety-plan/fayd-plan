@@ -1,21 +1,125 @@
 @import "tailwindcss";
 
-@theme {
-  --color-ink: #0f172a;
-  --color-muted: #475569;
-  --color-line: #e2e8f0;
-  --color-paper: #ffffff;
-  --color-soft: #f1f5f9;
-  --color-brand: #0f766e;
-  --color-brand-dark: #115e59;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+/*
+  Warna mengikuti aplikasi FAYD P2H Digital.
+  Nilai asli ada di :root (mode malam) dan [data-tema="siang"] (mode siang).
+  ink = selalu gelap, dipakai untuk teks di atas tombol amber.
+*/
+@theme inline {
+  --color-coal: var(--c-coal);
+  --color-panel: var(--c-panel);
+  --color-panel-2: var(--c-panel-2);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-dim: var(--c-dim);
+  --color-good: var(--c-good);
+  --color-amber: #f59e0b;
+  --color-amber-dark: #d97706;
+  --color-ink: #141414;
+  --color-ok: #15803d;
+  --color-warn: #b45309;
+  --color-bad: #b91c1c;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --c-coal: #141414;
+  --c-panel: #1f1f1f;
+  --c-panel-2: #262626;
+  --c-line: rgb(255 255 255 / 0.09);
+  --c-line-strong: #57534e;
+  --c-fg: #f5f5f4;
+  --c-muted: #d6d3d1;
+  --c-dim: #a8a29e;
+  --c-good: #4ade80;
+  --amber-text: #f59e0b;
+  --glass-bg: rgb(38 38 38 / 0.45);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-shine: rgb(255 255 255 / 0.07);
+  --blob: rgb(245 158 11 / 0.16);
+  --blob-2: rgb(245 158 11 / 0.08);
+  color-scheme: dark;
+}
+
+[data-tema="siang"] {
+  --c-coal: #fafaf9;
+  --c-panel: #f5f5f4;
+  --c-panel-2: #e7e5e4;
+  --c-line: rgb(20 20 20 / 0.1);
+  --c-line-strong: #a8a29e;
+  --c-fg: #141414;
+  --c-muted: #44403c;
+  --c-dim: #78716c;
+  --c-good: #15803d;
+  --amber-text: #b45309;
+  --glass-bg: rgb(255 255 255 / 0.55);
+  --glass-border: rgb(255 255 255 / 0.8);
+  --glass-shine: rgb(255 255 255 / 0.9);
+  --blob: rgb(245 158 11 / 0.28);
+  --blob-2: rgb(245 158 11 / 0.14);
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  color: var(--c-fg);
+  background:
+    radial-gradient(40rem 30rem at 85% 8%, var(--blob), transparent 70%),
+    radial-gradient(36rem 28rem at 5% 45%, var(--blob-2), transparent 70%),
+    radial-gradient(44rem 30rem at 90% 80%, var(--blob-2), transparent 70%),
+    var(--c-coal);
+  background-attachment: fixed;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Teks amber dibuat lebih gelap di mode siang agar tetap terbaca */
+.text-amber {
+  color: var(--amber-text);
+}
+.bg-ink.text-amber,
+.bg-ink .text-amber {
+  color: #f59e0b;
+}
+
+/* Efek kaca (water glass) */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-shine),
+    0 10px 30px -12px rgb(0 0 0 / 0.35);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+}
+
+/* Garis tiga khas logo FAYD */
+.stripes {
+  height: 14px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-amber) 0 5px,
+    transparent 5px 6px,
+    #d1d5db 6px 8px,
+    transparent 8px 9px,
+    var(--color-amber) 9px 14px
+  );
+}
+
+.glow {
+  background: radial-gradient(60% 50% at 70% 30%, rgb(245 158 11 / 0.12), transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    transition: none;
+  }
 }
